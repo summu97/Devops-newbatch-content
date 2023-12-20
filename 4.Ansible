@@ -549,7 +549,25 @@ P : PHP
       yum: name=python3 state=present
 
 =============================================================================
+to deploy your msg:
+- hosts: all
+  tasks:
+    - name: installing httpd
+      yum: name=httpd state=present
+    - name: start  httpd
+      service: name=httpd state=started
+    - name: create default path
+      command: mkdir -p /var/www/html
+    - name: copying file to default path
+      copy: src=index.html dest=/var/www/html
 
+
+
+
+        vim index.html
+
+<center><h1>SAY YOUR MSG HERE</h1></center>
+-------------------------------------------------------------------------
 NETFLIX DEPLOPYMET:
 
 - hosts: test
