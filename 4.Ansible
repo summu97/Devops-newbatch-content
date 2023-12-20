@@ -115,6 +115,23 @@ ansible all -m user -a "name=rajinikanth state=absent"
 ansible all -m copy -a "src=app.yml dest=/root"
 ansible all -a "ls /root"
 
+systemd module: systemd module is generally used for managing system services.
+ex:
+- name: Start a service
+  systemd:
+    name: your_service_name
+    state: started
+
+- name: Stop a service
+  systemd:
+    name: your_service_name
+    state: stopped
+- name: Restart a service
+  systemd:
+    name: your_service_name
+    state: restarted
+
+
 PLAYBOOKS:
 playbook is a collection of modules.
 we can execute multiple modules at same time.
